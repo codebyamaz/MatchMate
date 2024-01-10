@@ -1,20 +1,19 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".main.Main">
+    tools:context=".Main">
 
     <ImageView
         android:id="@+id/backImage"
         android:layout_width="52dp"
         android:layout_height="52dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="22dp"
         android:src="@drawable/back"
-        app:layout_constraintBottom_toTopOf="@+id/mainPhoto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,14 +21,12 @@
         android:id="@+id/discoverText"
         android:layout_width="151dp"
         android:layout_height="29dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="22dp"
         android:fontFamily="@font/skbold"
         android:gravity="center"
         android:text="Discover"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/placeText"
         app:layout_constraintEnd_toStartOf="@+id/filterImage"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/backImage"
@@ -39,7 +36,7 @@
         android:id="@+id/placeText"
         android:layout_width="151dp"
         android:layout_height="14dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:fontFamily="@font/skregular"
         android:gravity="center"
         android:text="Chicago, II"
@@ -49,30 +46,67 @@
         app:layout_constraintEnd_toStartOf="@+id/filterImage"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/backImage"
-        app:layout_constraintTop_toBottomOf="@+id/discoverText" />
+        app:layout_constraintTop_toBottomOf="@+id/discoverText"/>
 
     <ImageView
         android:id="@+id/filterImage"
         android:layout_width="52dp"
         android:layout_height="52dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="22dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="10dp"
         android:src="@drawable/filter"
-        app:layout_constraintBottom_toTopOf="@+id/mainPhoto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <FrameLayout
+        android:background="@color/white"
         android:id="@+id/mainPhoto"
         android:layout_width="299dp"
         android:layout_height="466dp"
-        android:src="@drawable/girl3"
+        android:layout_marginTop="25dp"
         app:layout_constraintBottom_toTopOf="@+id/starImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backImage" />
+        app:layout_constraintTop_toBottomOf="@+id/backImage">
+        <com.lorentzos.flingswipe.SwipeFlingAdapterView
+            android:id="@+id/swipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:rotation_degrees="15.0"/>
+    </FrameLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <ImageView
         android:id="@+id/dislikeImage"
@@ -84,7 +118,7 @@
         android:src="@drawable/dislikenew"
         app:layout_constraintEnd_toStartOf="@+id/likeImage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainPhoto" />
+        app:layout_constraintTop_toBottomOf="@+id/mainPhoto"/>
 
     <ImageView
         android:id="@+id/likeImage"
@@ -95,7 +129,7 @@
         android:src="@drawable/like"
         app:layout_constraintEnd_toStartOf="@+id/starImage"
         app:layout_constraintStart_toEndOf="@+id/dislikeImage"
-        app:layout_constraintTop_toBottomOf="@+id/mainPhoto" />
+        app:layout_constraintTop_toBottomOf="@+id/mainPhoto"/>
 
     <ImageView
         android:id="@+id/starImage"
@@ -107,7 +141,7 @@
         android:src="@drawable/star"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/likeImage"
-        app:layout_constraintTop_toBottomOf="@+id/mainPhoto" />
+        app:layout_constraintTop_toBottomOf="@+id/mainPhoto"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
