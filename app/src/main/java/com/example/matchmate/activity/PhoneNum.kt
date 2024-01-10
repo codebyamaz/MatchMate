@@ -14,7 +14,6 @@ class PhoneNum : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phone_num)
         val countryCodePicker = findViewById<CountryCodePicker>(R.id.countryCodePicker)
-        val editTextPhoneNumber = findViewById<EditText>(R.id.editTextPhoneNumber)
         val submitButton = findViewById<Button>(R.id.submitButton)
         submitButton.setOnClickListener {
             val intent = Intent(applicationContext, Code::class.java)
