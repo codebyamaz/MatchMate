@@ -1,19 +1,22 @@
 package com.example.matchmate.fragment;
 
-import com.example.matchmate.R
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import com.example.matchmate.R
+import com.example.matchmate.activity.MatchActivity
+
 
 class Home : Fragment() {
     var backImg: ImageView? = null
     var filterImg: ImageView? = null
-    var mainImg: ImageView? = null
+    private lateinit var mainImg: ImageView
     var dislikeImg: ImageView? = null
-    var likeImg: ImageView? = null
+    private lateinit var likeImg: ImageView
     var starImg: ImageView? = null
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +30,16 @@ class Home : Fragment() {
         dislikeImg = view.findViewById<ImageView>(R.id.dislikeImage)
         likeImg = view.findViewById<ImageView>(R.id.likeImage)
         starImg = view.findViewById<ImageView>(R.id.starImage)
+
+        likeImg.setOnClickListener {
+            val imageResourceId: Int = com.example.matchmate.R.drawable.girl3
+
+            val intent = Intent(context, MatchActivity::class.java)
+            intent.putExtra("imageResourceId", imageResourceId)
+
+            startActivity(intent)
+        }
+
         return view
     }
 }

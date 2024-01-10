@@ -1,4 +1,4 @@
-package com.example.matchmate;
+package com.example.matchmate.main;
 
 import com.example.matchmate.R
 import android.content.Intent
