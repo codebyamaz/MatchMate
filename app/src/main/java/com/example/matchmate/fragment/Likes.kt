@@ -22,13 +22,13 @@ class Likes : Fragment() {
         val gridView = view.findViewById<GridView>(R.id.gridView)
         dataModels = ArrayList()
         val likes1 =
-            LikesModel(R.drawable.one, "Leilani, 19", R.drawable.crossvec, R.drawable.likevec)
+            LikesModel(R.drawable.girl3, "Leilani, 19", R.drawable.crossvec, R.drawable.likevec)
         val likes2 =
-            LikesModel(R.drawable.two, "Annabelle, 20", R.drawable.crossvec, R.drawable.likevec)
+            LikesModel(R.drawable.girl9, "Annabelle, 20", R.drawable.crossvec, R.drawable.likevec)
         val likes3 =
-            LikesModel(R.drawable.three, "Reagon, 25", R.drawable.crossvec, R.drawable.likevec)
+            LikesModel(R.drawable.girl7, "Reagon, 25", R.drawable.crossvec, R.drawable.likevec)
         val likes4 =
-            LikesModel(R.drawable.four, "Hadley, 24", R.drawable.crossvec, R.drawable.likevec)
+            LikesModel(R.drawable.girl10, "Hadley, 24", R.drawable.crossvec, R.drawable.likevec)
         dataModels!!.add(likes1)
         dataModels!!.add(likes2)
         dataModels!!.add(likes3)

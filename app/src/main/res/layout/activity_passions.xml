@@ -371,7 +371,7 @@
         android:layout_width="295dp"
         android:layout_height="56dp"
         android:layout_marginBottom="40dp"
-        android:background="@color/red"
+        android:background="@drawable/circle_border"
         android:fontFamily="@font/skbold"
         android:text="Continue"
         android:textSize="16dp"
