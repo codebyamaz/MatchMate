@@ -1,6 +1,5 @@
 package com.example.matchmate.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,19 +8,35 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.matchmate.R
-import com.example.matchmate.activity.MatchActivity
 import com.example.matchmate.adapter.ImageAdapter
 import com.lorentzos.flingswipe.SwipeFlingAdapterView
+import kotlin.properties.Delegates
 
 class Home : Fragment() {
+
+    private var currentImageIndex by Delegates.notNull<Int>()
     private var backImg: ImageView? = null
     private var filterImg: ImageView? = null
     private lateinit var dislikeImg: ImageView
     private lateinit var likeImg: ImageView
     private lateinit var starImg: ImageView
     private lateinit var imageAdapter: ImageAdapter
-    private lateinit var data: MutableList<Int>
     private lateinit var flingAdapterView: SwipeFlingAdapterView
+
+    private val initialData = listOf(
+        R.drawable.girl2,
+        R.drawable.girl3,
+        R.drawable.girl5,
+        R.drawable.girl7,
+        R.drawable.girl8,
+        R.drawable.girl9,
+        R.drawable.g1,
+        R.drawable.g2,
+        R.drawable.g4,
+        R.drawable.g5,
+        R.drawable.g7,
+        R.drawable.g3,
+        )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,83 +53,75 @@ class Home : Fragment() {
 
         flingAdapterView = view.findViewById(R.id.swipe)
 
-        // Load image resources from the drawable folder
-        data = mutableListOf(
-            R.drawable.girl1,
-            R.drawable.girl2,
-            R.drawable.girl4,
-            R.drawable.girl10,
-            R.drawable.girl9,
-            R.drawable.girl8,
-            R.drawable.girl7,
-            R.drawable.girl6,
-            R.drawable.girl3,
-            R.drawable.girl5,
-            R.drawable.girl1,
-            R.drawable.girl2,
-            R.drawable.girl4,
-            R.drawable.girl10,
-            R.drawable.girl9,
-            R.drawable.girl8,
-            R.drawable.girl7,
-            R.drawable.girl6,
-            R.drawable.girl3,
-            R.drawable.girl5
-        )
+        currentImageIndex = 0
+        setupFlingAdapter()
 
-        imageAdapter = ImageAdapter(requireContext(), data)
+        dislikeImg.setOnClickListener {
+            flingAdapterView.topCardListener.selectLeft()
+            removeFirstObjectAndNotifyAdapter()
+        }
+
+        likeImg.setOnClickListener {
+            flingAdapterView.topCardListener.selectRight()
+            removeFirstObjectAndNotifyAdapter()
+        }
+
+        return view
+    }
+
+    private fun setupFlingAdapter() {
+        imageAdapter = ImageAdapter(requireContext(), initialData)
         flingAdapterView.adapter = imageAdapter
 
         flingAdapterView.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
             override fun removeFirstObjectInAdapter() {
-                data.removeAt(0)
+                // Create a new list without the first element
+                initialData.drop(1)
                 imageAdapter.notifyDataSetChanged()
             }
 
             override fun onLeftCardExit(o: Any) {
-                Toast.makeText(requireContext(), "dislike", Toast.LENGTH_SHORT).show()
+                showToast("dislike")
+                removeFirstObjectAndNotifyAdapter()
             }
 
             override fun onRightCardExit(o: Any) {
-                Toast.makeText(requireContext(), "like", Toast.LENGTH_SHORT).show()
+                showToast("like")
+                removeFirstObjectAndNotifyAdapter()
             }
 
-            override fun onAdapterAboutToEmpty(i: Int) {}
-            override fun onScroll(v: Float) {}
+            override fun onAdapterAboutToEmpty(i: Int) {
+                // Load more data or reset the adapter if needed
+            }
+
+            override fun onScroll(v: Float) {
+                // Handle scrolling events if needed
+            }
         })
 
-        flingAdapterView.setOnItemClickListener(object :
-            SwipeFlingAdapterView.OnItemClickListener {
+        flingAdapterView.setOnItemClickListener(object : SwipeFlingAdapterView.OnItemClickListener {
             override fun onItemClicked(i: Int, o: Any) {
-                Toast.makeText(requireContext(), "data is " + data[i], Toast.LENGTH_SHORT)
-                    .show()
+                showToast("data is ${initialData[i]}")
             }
         })
+    }
 
-        starImg.setOnClickListener { flingAdapterView.topCardListener.selectRight() }
-
-        dislikeImg.setOnClickListener { flingAdapterView.topCardListener.selectLeft() }
-
-        likeImg.setOnClickListener {
-                val intent = Intent(context, MatchActivity::class.java)
-                startActivity(intent)
+    private fun removeFirstObjectAndNotifyAdapter() {
+        currentImageIndex++
+        if (currentImageIndex < initialData.size) {
+            imageAdapter = ImageAdapter(requireContext(), listOf(initialData[currentImageIndex]))
+            flingAdapterView.adapter = imageAdapter
+            imageAdapter.notifyDataSetChanged()
+        } else {
+            currentImageIndex = 0
+            imageAdapter = ImageAdapter(requireContext(), initialData)
+            flingAdapterView.adapter = imageAdapter
+            imageAdapter.notifyDataSetChanged()
+            showToast("No more images")
         }
-       /* likeImg.setOnClickListener {
-            val currentPosition = flingAdapterView.selectedItemPosition
-            if (currentPosition != -1 && currentPosition < data.size) {
-                val imageResourceId: Int = data[currentPosition]
-                val intent = Intent(context, MatchActivity::class.java)
-                intent.putExtra("imageResourceId", imageResourceId)
-                startActivity(intent)
-            } else {
-                Toast.makeText(requireContext(), "No item selected", Toast.LENGTH_SHORT).show()
-            }
-        }*/
+    }
 
-
-
-
-
-        return view
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }

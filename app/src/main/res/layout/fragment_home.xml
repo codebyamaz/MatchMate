@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Main">
+    tools:context=".main.Main">
 
     <ImageView
         android:id="@+id/backImage"
@@ -58,23 +58,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <FrameLayout
         android:background="@color/white"
         android:id="@+id/mainPhoto"
@@ -86,27 +69,14 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backImage">
+
         <com.lorentzos.flingswipe.SwipeFlingAdapterView
             android:id="@+id/swipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:rotation_degrees="15.0"/>
+
     </FrameLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <ImageView
         android:id="@+id/dislikeImage"

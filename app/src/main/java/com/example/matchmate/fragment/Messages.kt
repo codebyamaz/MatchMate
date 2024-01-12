@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -18,13 +19,22 @@ import com.example.matchmate.extra.DividerItemDecoration
 import com.example.matchmate.model.MessagesModel
 
 class Messages : Fragment() {
+
+    private lateinit var filter: ImageView
+    private lateinit var searchView: SearchView
+    private lateinit var recyclerView: RecyclerView
     private var dataModels: ArrayList<MessagesModel>? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view: View = inflater.inflate(R.layout.fragment_messages, container, false)
-        val searchView = view.findViewById<SearchView>(R.id.searchView)
+        filter = view.findViewById(R.id.filterImg)
+        recyclerView = view.findViewById(R.id.recyclerView)
+        searchView = view.findViewById<SearchView>(R.id.searchView)
+
         dataModels = ArrayList()
         dataModels!!.add(MessagesModel(R.drawable.girl, "Olivia", "Typing...", "22 min"))
         dataModels!!.add(MessagesModel(R.drawable.girl2, "Emma", "Hey, How are you?", "17 min"))

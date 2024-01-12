@@ -7,19 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.GridView
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.matchmate.adapter.LikesAdapter
 import com.example.matchmate.model.LikesModel
 
 class Likes : Fragment() {
+
+    private lateinit var filter: ImageView
+    private lateinit var gridView: GridView
     private var dataModels: ArrayList<LikesModel>? = null
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         val view: View = inflater.inflate(R.layout.fragment_likes, container, false)
-        val gridView = view.findViewById<GridView>(R.id.gridView)
+        filter = view.findViewById(R.id.filter)
+        gridView = view.findViewById<GridView>(R.id.gridView)
+
         dataModels = ArrayList()
         val likes1 =
             LikesModel(R.drawable.girl3, "Leilani, 19", R.drawable.crossvec, R.drawable.likevec)
@@ -28,7 +32,8 @@ class Likes : Fragment() {
         val likes3 =
             LikesModel(R.drawable.girl7, "Reagon, 25", R.drawable.crossvec, R.drawable.likevec)
         val likes4 =
-            LikesModel(R.drawable.girl10, "Hadley, 24", R.drawable.crossvec, R.drawable.likevec)
+            LikesModel(R.drawable.girl8, "Hadley, 24", R.drawable.crossvec, R.drawable.likevec)
+
         dataModels!!.add(likes1)
         dataModels!!.add(likes2)
         dataModels!!.add(likes3)

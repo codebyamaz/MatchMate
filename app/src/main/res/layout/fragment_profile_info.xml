@@ -8,16 +8,6 @@
     tools:ignore="ExtraText">
 
     <ImageView
-        android:id="@+id/backButton"
-        android:layout_width="375dp"
-        android:layout_height="415dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="44dp"
-        android:src="@drawable/backbutton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
         android:id="@+id/profileInfoPicture"
         android:layout_width="0dp"
         android:layout_height="415dp"
@@ -208,6 +198,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/interestsHeading">
 
                     <Button
+                        android:id="@+id/b1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/travel"
@@ -239,6 +230,7 @@
                     app:layout_constraintTop_toTopOf="@+id/interest_1">
 
                     <Button
+                        android:id="@+id/b2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/books"
@@ -266,6 +258,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/interest_1">
 
                     <Button
+                        android:id="@+id/b3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/my_music"
@@ -292,6 +285,7 @@
                     app:layout_constraintTop_toTopOf="@+id/interest_3">
 
                     <Button
+                        android:id="@+id/b4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/shopping"

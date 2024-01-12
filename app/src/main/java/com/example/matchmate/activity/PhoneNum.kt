@@ -10,11 +10,19 @@ import com.example.matchmate.activity.Code
 import com.hbb20.CountryCodePicker
 
 class PhoneNum : AppCompatActivity() {
+
+    private lateinit var submitButton: Button
+    private lateinit var countryCodePicker: CountryCodePicker;
+    private lateinit var phoneNum: EditText;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phone_num)
-        val countryCodePicker = findViewById<CountryCodePicker>(R.id.countryCodePicker)
-        val submitButton = findViewById<Button>(R.id.submitButton)
+
+        countryCodePicker = findViewById<CountryCodePicker>(R.id.countryCodePicker)
+        submitButton = findViewById<Button>(R.id.submitButton)
+        phoneNum = findViewById<EditText>(R.id.editTextPhoneNumber);
+
         submitButton.setOnClickListener {
             val intent = Intent(applicationContext, Code::class.java)
             startActivity(intent)

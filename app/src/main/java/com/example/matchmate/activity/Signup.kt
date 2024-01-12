@@ -8,10 +8,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.matchmate.activity.PhoneNum
 
 class Signup : AppCompatActivity() {
+
+    private lateinit var email: Button
+    private lateinit var phoneNum: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_signup)
-        val phoneNum = findViewById<Button>(R.id.button3)
+
+        email = findViewById<Button>(R.id.button2);
+        phoneNum = findViewById<Button>(R.id.button3)
+
         phoneNum.setOnClickListener {
             val intent = Intent(applicationContext, PhoneNum::class.java)
             startActivity(intent)

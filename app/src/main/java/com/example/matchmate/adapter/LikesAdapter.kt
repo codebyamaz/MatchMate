@@ -2,6 +2,7 @@ package com.example.matchmate.adapter;
 
 import com.example.matchmate.R
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
+import com.example.matchmate.activity.MatchActivity
 import com.example.matchmate.model.LikesModel
 
 class LikesAdapter(
@@ -55,17 +58,18 @@ class LikesAdapter(
             if (position == 0) {
                 val firstItem = getItem(0)
                 if (firstItem != null && firstItem.likeImage == R.drawable.likevec) {
-                    Toast.makeText(context, "Liked " + firstItem.matchNameAge, Toast.LENGTH_SHORT)
-                        .show()
 
-                    // Check if textView is not null before accessing it
-                    if (myViewHolder.textView != null) {
-                        myViewHolder.textView!!.visibility = View.INVISIBLE
-                    }
+                    val intent = Intent(context, MatchActivity::class.java)
+                    startActivity(context, intent, null)
+
                 }
             } else if (items != null && items.likeImage == R.drawable.likevec) {
-                Toast.makeText(context, "Liked " + items.matchNameAge, Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(context, MatchActivity::class.java)
+                startActivity(context, intent, null)
+
             }
+
         }
         return result
     }

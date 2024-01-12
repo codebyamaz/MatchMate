@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -37,14 +38,19 @@ class Passions : AppCompatActivity(), View.OnClickListener {
     private lateinit var btn9: Button
     private lateinit var btn10: Button
 
+    private lateinit var back: ImageView
+    private lateinit var skip: TextView
+    private lateinit var confirmation: Button
+
     private lateinit var constraintLayout: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passions)
 
-        val back = findViewById<ImageView>(R.id.backImage)
-        val next = findViewById<Button>(R.id.next)
+        back = findViewById<ImageView>(R.id.backImage)
+        skip = findViewById(R.id.skip)
+        confirmation = findViewById<Button>(R.id.next)
         constraintLayout = findViewById(R.id.constraint)
 
         btn1 = findViewById(R.id.btn1)
@@ -93,7 +99,7 @@ class Passions : AppCompatActivity(), View.OnClickListener {
 
         constraintLayout.setOnClickListener(this)
 
-        next.setOnClickListener {
+        confirmation.setOnClickListener {
             val intent = Intent(applicationContext, Main::class.java)
             startActivity(intent)
         }

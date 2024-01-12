@@ -9,8 +9,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.matchmate.R
 import com.example.matchmate.fragment.Home
+import com.example.matchmate.fragment.Likes
 import com.example.matchmate.main.Main
 
 
@@ -67,8 +69,8 @@ class MatchActivity : AppCompatActivity() {
 //        fragmentTransaction.addToBackStack(null)
 //        fragmentTransaction.commit()
 
-
         val intent = Intent(applicationContext, Main::class.java)
         startActivity(intent)
+
     }
 }
