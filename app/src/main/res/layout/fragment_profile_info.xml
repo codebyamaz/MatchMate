@@ -7,12 +7,23 @@
     tools:context=".ProfileInfo"
     tools:ignore="ExtraText">
 
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!-- This is your FragmentContainer -->
+    </FrameLayout>
+
     <ImageView
         android:id="@+id/profileInfoPicture"
         android:layout_width="0dp"
         android:layout_height="415dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/main2"
+        android:src="@drawable/a1"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -58,13 +69,12 @@
 
                 <TextView
                     android:id="@+id/nameAge"
-                    android:layout_width="250dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="36dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="35dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/skbold"
-                    android:text="Jessica Parker, 23"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toTopOf="@+id/occupation"
                     app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +100,7 @@
                     android:layout_marginBottom="35dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/skregular"
-                    android:text="Professional Model"
+                    android:text="Businessman"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/locationHeading"
                     app:layout_constraintStart_toStartOf="parent"
@@ -164,7 +174,7 @@
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/skregular"
                     android:maxLines="3"
-                    android:text="My name is Jessica Parker and I enjoy meeting new people and finding ways to help them have an uplifting experience. I enjoy reading."
+                    android:text="My name is John and I enjoy meeting new people and finding ways to help them have an uplifting experience. I enjoy reading."
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/interestsHeading"

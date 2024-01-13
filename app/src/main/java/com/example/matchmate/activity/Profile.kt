@@ -1,6 +1,5 @@
 package com.example.matchmate.activity;
 
-import com.example.matchmate.R
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,9 +9,13 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.matchmate.activity.Iam
+import androidx.fragment.app.FragmentManager
+import com.example.matchmate.R
+import com.example.matchmate.fragment.ProfileInfo
 import com.google.android.material.textfield.TextInputLayout
+
 
 class Profile : AppCompatActivity() {
 
@@ -64,8 +67,18 @@ class Profile : AppCompatActivity() {
         }
 
         confirmation.setOnClickListener {
-            val intent = Intent(applicationContext, Iam::class.java)
-            startActivity(intent)
+            if (firstName.text.toString().isNotEmpty() && lastName.text.toString().isNotEmpty()) {
+
+                val intent = Intent(applicationContext, Iam::class.java)
+
+                intent.putExtra("FIRST_NAME", firstName.text.toString())
+                intent.putExtra("LAST_NAME", lastName.text.toString())
+
+                startActivity(intent)
+
+            } else {
+                Toast.makeText(this@Profile, "Please enter your name", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }

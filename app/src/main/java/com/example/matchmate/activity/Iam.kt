@@ -4,11 +4,15 @@ import com.example.matchmate.R
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.example.matchmate.fragment.ProfileInfo
+
 
 class Iam : AppCompatActivity() {
 
@@ -34,15 +38,22 @@ class Iam : AppCompatActivity() {
             man.setBackgroundColor(Color.WHITE)
         }
 
+
         man.setOnClickListener {
-            woman.setBackgroundColor(Color.WHITE)
-            man.setBackgroundColor(Color.parseColor("#E94057"))
-        }
+                woman.setBackgroundColor(Color.WHITE)
+                man.setBackgroundColor(Color.parseColor("#E94057"))
+            }
 
         submitButton.setOnClickListener {
-            val intent = Intent(applicationContext, Passions::class.java)
-            startActivity(intent)
-        }
 
-    }
+            val firstName = intent.getStringExtra("FIRST_NAME")
+            val lastName = intent.getStringExtra("LAST_NAME")
+            val intent = Intent(applicationContext, Passions::class.java)
+
+            intent.putExtra("FIRST_NAME", firstName)
+            intent.putExtra("LAST_NAME", lastName)
+            startActivity(intent)
+            }
+
+        }
 }

@@ -1,5 +1,6 @@
 package com.example.matchmate.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.transition.Slide
 import android.transition.TransitionManager
@@ -73,7 +74,6 @@ class Home : Fragment() {
         dislikeImg = view.findViewById(R.id.dislikeImage)
         likeImg = view.findViewById(R.id.likeImage)
         starImg = view.findViewById(R.id.starImage)
-
         flingAdapterView = view.findViewById(R.id.swipe)
 
         currentImageIndex = 0

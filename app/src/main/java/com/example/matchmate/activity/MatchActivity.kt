@@ -69,6 +69,7 @@ class MatchActivity : AppCompatActivity() {
 //        fragmentTransaction.commit()
 
         val intent = Intent(applicationContext, Main::class.java)
+        intent.putExtra("KEY", R.drawable.g17)
         startActivity(intent)
 
     }

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -99,8 +100,15 @@ class Passions : AppCompatActivity(), View.OnClickListener {
 
         constraintLayout.setOnClickListener(this)
 
+        val firstName = intent.getStringExtra("FIRST_NAME")
+        val lastName = intent.getStringExtra("LAST_NAME")
+
         confirmation.setOnClickListener {
             val intent = Intent(applicationContext, Main::class.java)
+
+            intent.putExtra("FIRST_NAME", firstName)
+            intent.putExtra("LAST_NAME", lastName)
+
             startActivity(intent)
         }
     }
