@@ -12,7 +12,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/girl"
+        android:src="@drawable/g17"
         app:civ_border_color="#FF000000"
         app:civ_border_width="1dp" />
 
@@ -24,7 +24,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_toEndOf="@+id/profile_image"
-        android:text="@string/grace"
+        android:text="Emily"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold" />

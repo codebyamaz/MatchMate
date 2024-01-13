@@ -36,12 +36,13 @@ class Messages : Fragment() {
         searchView = view.findViewById<SearchView>(R.id.searchView)
 
         dataModels = ArrayList()
-        dataModels!!.add(MessagesModel(R.drawable.girl, "Olivia", "Typing...", "22 min"))
-        dataModels!!.add(MessagesModel(R.drawable.girl2, "Emma", "Hey, How are you?", "17 min"))
-        dataModels!!.add(MessagesModel(R.drawable.girl3, "Ava", "What's up?", "35 min"))
+        dataModels!!.add(MessagesModel(R.drawable.g25, "Olivia", "Typing...", "22 min"))
+        dataModels!!.add(MessagesModel(R.drawable.girl19, "Emma", "Hey, How are you?", "17 min"))
+        dataModels!!.add(MessagesModel(R.drawable.g20, "Ava", "What's up?", "35 min"))
+
         dataModels!!.add(
             MessagesModel(
-                R.drawable.girl4,
+                R.drawable.girl20,
                 "Sophia",
                 "You: How was your day?",
                 "30 min"
@@ -49,7 +50,7 @@ class Messages : Fragment() {
         )
         dataModels!!.add(
             MessagesModel(
-                R.drawable.girl5,
+                R.drawable.g29,
                 "Amelia",
                 "When are we meeting?",
                 "48 min"
@@ -57,14 +58,14 @@ class Messages : Fragment() {
         )
         dataModels!!.add(
             MessagesModel(
-                R.drawable.girl6,
+                R.drawable.g26,
                 "Isabella",
                 "Let's catch up soon!",
                 "20 min"
             )
         )
         dataModels!!.add(MessagesModel(R.drawable.girl7, "Mia", "You: Hey!", "50 min"))
-        dataModels!!.add(MessagesModel(R.drawable.girl8, "Harper", "Good night!", "10 min"))
+        dataModels!!.add(MessagesModel(R.drawable.g32, "Harper", "Good night!", "10 min"))
         dataModels!!.add(
             MessagesModel(
                 R.drawable.girl9,
@@ -75,12 +76,13 @@ class Messages : Fragment() {
         )
         dataModels!!.add(
             MessagesModel(
-                R.drawable.girl10,
+                R.drawable.g19,
                 "Abigail",
                 "Can you send me the details?",
                 "40 min"
             )
         )
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         val adapter = MessageAdapter(dataModels!!)
         recyclerView.setHasFixedSize(true)

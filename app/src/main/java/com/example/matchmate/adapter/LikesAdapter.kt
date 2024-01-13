@@ -53,6 +53,7 @@ class LikesAdapter(
         myViewHolder.matchNameAge!!.text = dataModel.matchNameAge
         myViewHolder.crossImage!!.setImageResource(dataModel.crossImage)
         myViewHolder.likeImage!!.setImageResource(dataModel.likeImage)
+
         myViewHolder.likeImage!!.setOnClickListener { v: View? ->
             val items = getItem(position)
             if (position == 0) {
@@ -60,12 +61,14 @@ class LikesAdapter(
                 if (firstItem != null && firstItem.likeImage == R.drawable.likevec) {
 
                     val intent = Intent(context, MatchActivity::class.java)
+                    intent.putExtra("MATCH_IMAGE", items.matchImage)
                     startActivity(context, intent, null)
 
                 }
             } else if (items != null && items.likeImage == R.drawable.likevec) {
 
                 val intent = Intent(context, MatchActivity::class.java)
+                intent.putExtra("MATCH_IMAGE", items.matchImage)
                 startActivity(context, intent, null)
 
             }

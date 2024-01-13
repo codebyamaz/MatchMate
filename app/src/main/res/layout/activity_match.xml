@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/photo4"
+                    android:src="@drawable/g29"
                     tools:ignore="ContentDescription" />
             </androidx.cardview.widget.CardView>
 

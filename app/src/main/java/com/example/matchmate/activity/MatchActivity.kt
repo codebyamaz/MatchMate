@@ -52,9 +52,8 @@ class MatchActivity : AppCompatActivity() {
         fl1 = findViewById(R.id.fl1)
         fl2 = findViewById(R.id.fl2)
 
-//        val receivedImageResourceId = intent.getIntExtra("imageResourceId", 0)
-
-//        img2.setImageResource(receivedImageResourceId)
+        val intent = intent.getIntExtra("MATCH_IMAGE", 0)
+        img2.setImageResource(intent)
 
         swipeBtn.setOnClickListener {
             replaceFragment(Home())

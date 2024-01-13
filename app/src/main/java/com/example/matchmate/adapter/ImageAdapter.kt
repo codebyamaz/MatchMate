@@ -8,7 +8,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
 
-class ImageAdapter(private val context: Context, private val data: List<Int>) : BaseAdapter() {
+class ImageAdapter(private val context: Context, private var data: List<Int>) : BaseAdapter() {
 
     override fun getCount(): Int = data.size
 
@@ -33,6 +33,19 @@ class ImageAdapter(private val context: Context, private val data: List<Int>) : 
         Picasso.get().load(data[position]).into(imageView)
 
         return imageView
+    }
+
+    fun setData(newData: List<Int>) {
+        data = newData
+        notifyDataSetChanged()
+    }
+
+    fun updateData(newData: List<Int>) {
+        // Clear the existing data
+        data = newData
+
+        // Notify the adapter that the data has changed
+        notifyDataSetChanged()
     }
 
 }
