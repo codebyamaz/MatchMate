@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager
 import com.example.matchmate.R
 import com.example.matchmate.fragment.Home
 import com.example.matchmate.fragment.Likes
+import com.example.matchmate.fragment.ProfileInfo
 import com.example.matchmate.main.Main
 
 
@@ -56,21 +57,9 @@ class MatchActivity : AppCompatActivity() {
         img2.setImageResource(intent)
 
         swipeBtn.setOnClickListener {
-            replaceFragment(Home())
+            val intent = Intent(applicationContext, Main::class.java)
+            startActivity(intent)
         }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-
-//        val fragmentManager: FragmentManager = supportFragmentManager
-//        val fragmentTransaction = fragmentManager.beginTransaction()
-//        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-//        fragmentTransaction.addToBackStack(null)
-//        fragmentTransaction.commit()
-
-        val intent = Intent(applicationContext, Main::class.java)
-        intent.putExtra("KEY", R.drawable.g17)
-        startActivity(intent)
-
-    }
 }

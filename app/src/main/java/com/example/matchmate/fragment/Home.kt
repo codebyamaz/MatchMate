@@ -1,6 +1,5 @@
 package com.example.matchmate.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.transition.Slide
 import android.transition.TransitionManager
@@ -8,8 +7,8 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -21,58 +20,29 @@ import kotlin.properties.Delegates
 class Home : Fragment() {
 
     private var currentImageIndex by Delegates.notNull<Int>()
-    private var backImg: ImageView? = null
-    private var filterImg: ImageView? = null
+    private lateinit var backImg: ImageView
+    private lateinit var filterImg: ImageView
     private lateinit var dislikeImg: ImageView
     private lateinit var likeImg: ImageView
     private lateinit var starImg: ImageView
     private lateinit var imageAdapter: ImageAdapter
     private lateinit var flingAdapterView: SwipeFlingAdapterView
-    private lateinit var inflater2: LayoutInflater
-    private lateinit var layout: View
     private lateinit var toastText: TextView
     private lateinit var customToast: Toast
+    private lateinit var layout: View
+    private lateinit var frameLayout: FrameLayout
     private var canSwipe = true
 
     private var initialData = mutableListOf(
-        R.drawable.g29,
-        R.drawable.girl7,
-        R.drawable.g23,
-        R.drawable.g27,
-        R.drawable.g20,
-        R.drawable.g36,
-        R.drawable.g22,
-        R.drawable.g17,
-        R.drawable.girl20,
-        R.drawable.g26,
-        R.drawable.g13,
-        R.drawable.g18,
-        R.drawable.g19,
-        R.drawable.g11,
-        R.drawable.g21,
-        R.drawable.g15,
-        R.drawable.g24,
-        R.drawable.girl19,
-        R.drawable.g25,
-        R.drawable.girl17,
-        R.drawable.girl9,
-        R.drawable.girl15,
-        R.drawable.girl2,
-        R.drawable.girl14,
-        R.drawable.g1,
-        R.drawable.g30,
-        R.drawable.g32,
-        R.drawable.g16,
-        R.drawable.g35,
-        R.drawable.girl13,
-        R.drawable.girl5,
-        )
+        R.drawable.g29, R.drawable.girl7, R.drawable.g23, R.drawable.g27, R.drawable.g20,
+        R.drawable.g36, R.drawable.g22, R.drawable.g17, R.drawable.girl20, R.drawable.g26,
+        R.drawable.g13, R.drawable.g18, R.drawable.g19, R.drawable.g11, R.drawable.g21,
+        R.drawable.g15, R.drawable.g24, R.drawable.girl19, R.drawable.g25, R.drawable.girl17,
+        R.drawable.girl9, R.drawable.girl15, R.drawable.girl2, R.drawable.girl14, R.drawable.g1,
+        R.drawable.g30, R.drawable.g32, R.drawable.g16, R.drawable.g35, R.drawable.girl13, R.drawable.girl5
+    )
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
         backImg = view.findViewById(R.id.backImage)
@@ -81,26 +51,20 @@ class Home : Fragment() {
         likeImg = view.findViewById(R.id.likeImage)
         starImg = view.findViewById(R.id.starImage)
         flingAdapterView = view.findViewById(R.id.swipe)
-
+        frameLayout = view.findViewById(R.id.mainPhoto)
         customToast = Toast(context)
-        inflater2 = layoutInflater
         layout = inflater.inflate(R.layout.custom_toast_layout, view.findViewById(R.id.custom_toast_layout))
         toastText = layout.findViewById<TextView>(R.id.toastText)
-        customToast.view = layout
 
         currentImageIndex = 0
         setupFlingAdapter()
 
         likeImg.setOnClickListener {
-            canSwipe = false  // Disable swiping until the next image is loaded
-            flingAdapterView.topCardListener.selectRight()
-            removeFirstObjectAndNotifyAdapter()
+            handleSwipe(true)
         }
 
         dislikeImg.setOnClickListener {
-            canSwipe = false  // Disable swiping until the next image is loaded
-            flingAdapterView.topCardListener.selectLeft()
-            removeFirstObjectAndNotifyAdapter()
+            handleSwipe(false)
         }
 
         return view
@@ -117,19 +81,11 @@ class Home : Fragment() {
             }
 
             override fun onLeftCardExit(o: Any) {
-                toastText.text = "Pass"
-                customToast.view = layout
-                customToast.duration = Toast.LENGTH_SHORT
-                customToast.show()
-                removeFirstObjectAndNotifyAdapter()
+                handleSwipeResult("Pass")
             }
 
             override fun onRightCardExit(o: Any) {
-                toastText.text = "Admire"
-                customToast.view = layout
-                customToast.duration = Toast.LENGTH_SHORT
-                customToast.show()
-                removeFirstObjectAndNotifyAdapter()
+                handleSwipeResult("Admire")
             }
 
             override fun onAdapterAboutToEmpty(i: Int) {
@@ -138,15 +94,29 @@ class Home : Fragment() {
             override fun onScroll(v: Float) {
             }
         })
+
         flingAdapterView.setOnItemClickListener(object : SwipeFlingAdapterView.OnItemClickListener {
             override fun onItemClicked(i: Int, o: Any) {
-                toastText.text = "data is ${initialData[i]}"
-                customToast.view = layout
-                customToast.duration = Toast.LENGTH_SHORT
-                customToast.show()
+                showToast("data is ${initialData[i]}")
             }
         })
     }
+
+    private fun handleSwipeResult(message: String) {
+        showToast(message)
+        removeFirstObjectAndNotifyAdapter()
+    }
+
+    private fun handleSwipe(isRight: Boolean) {
+        canSwipe = false  // Disable swiping until the next image is loaded
+        if (isRight) {
+            flingAdapterView.topCardListener.selectRight()
+        } else {
+            flingAdapterView.topCardListener.selectLeft()
+        }
+        removeFirstObjectAndNotifyAdapter()
+    }
+
     private fun removeFirstObjectAndNotifyAdapter() {
         if (canSwipe && initialData.isNotEmpty()) {
             // Update the current image index
@@ -160,7 +130,7 @@ class Home : Fragment() {
                 transition.addTarget(flingAdapterView)
 
                 // Apply the transition to the fragment's container
-                TransitionManager.beginDelayedTransition(flingAdapterView.parent as ViewGroup, transition)
+                TransitionManager.beginDelayedTransition(frameLayout, transition)
 
                 // Update the adapter with the new data
                 imageAdapter.setData(listOf(initialData[currentImageIndex]))
@@ -176,17 +146,14 @@ class Home : Fragment() {
                 transition.addTarget(flingAdapterView)
 
                 // Apply the transition to the fragment's container
-                TransitionManager.beginDelayedTransition(flingAdapterView.parent as ViewGroup, transition)
+                TransitionManager.beginDelayedTransition(frameLayout, transition)
 
                 // Update the adapter with the new data
                 imageAdapter.setData(initialData)
                 imageAdapter.notifyDataSetChanged()
 
                 // Handle when there are no more images to display
-                toastText.text = "No more images"
-                customToast.view = layout
-                customToast.duration = Toast.LENGTH_SHORT
-                customToast.show()
+                showToast("No more images")
             }
         }
 
@@ -194,9 +161,10 @@ class Home : Fragment() {
         canSwipe = true
     }
 
-
-
     private fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        toastText.text = message
+        customToast.view = layout
+        customToast.duration = Toast.LENGTH_SHORT
+        customToast.show()
     }
 }
