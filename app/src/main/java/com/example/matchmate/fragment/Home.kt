@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.matchmate.R
@@ -26,20 +28,29 @@ class Home : Fragment() {
     private lateinit var starImg: ImageView
     private lateinit var imageAdapter: ImageAdapter
     private lateinit var flingAdapterView: SwipeFlingAdapterView
+    private lateinit var inflater2: LayoutInflater
+    private lateinit var layout: View
+    private lateinit var toastText: TextView
+    private lateinit var customToast: Toast
     private var canSwipe = true
 
     private var initialData = mutableListOf(
         R.drawable.g29,
         R.drawable.girl7,
-        R.drawable.g22,
+        R.drawable.g23,
+        R.drawable.g27,
+        R.drawable.g20,
         R.drawable.g36,
+        R.drawable.g22,
+        R.drawable.g17,
         R.drawable.girl20,
+        R.drawable.g26,
+        R.drawable.g13,
         R.drawable.g18,
         R.drawable.g19,
+        R.drawable.g11,
         R.drawable.g21,
         R.drawable.g15,
-        R.drawable.g20,
-        R.drawable.g35,
         R.drawable.g24,
         R.drawable.girl19,
         R.drawable.g25,
@@ -49,17 +60,12 @@ class Home : Fragment() {
         R.drawable.girl2,
         R.drawable.girl14,
         R.drawable.g1,
-        R.drawable.g11,
         R.drawable.g30,
         R.drawable.g32,
-        R.drawable.g13,
         R.drawable.g16,
-        R.drawable.g17,
-        R.drawable.g23,
-        R.drawable.g26,
+        R.drawable.g35,
         R.drawable.girl13,
         R.drawable.girl5,
-        R.drawable.g27,
         )
 
     override fun onCreateView(
@@ -75,6 +81,12 @@ class Home : Fragment() {
         likeImg = view.findViewById(R.id.likeImage)
         starImg = view.findViewById(R.id.starImage)
         flingAdapterView = view.findViewById(R.id.swipe)
+
+        customToast = Toast(context)
+        inflater2 = layoutInflater
+        layout = inflater.inflate(R.layout.custom_toast_layout, view.findViewById(R.id.custom_toast_layout))
+        toastText = layout.findViewById<TextView>(R.id.toastText)
+        customToast.view = layout
 
         currentImageIndex = 0
         setupFlingAdapter()
@@ -105,12 +117,18 @@ class Home : Fragment() {
             }
 
             override fun onLeftCardExit(o: Any) {
-                showToast("Pass")
+                toastText.text = "Pass"
+                customToast.view = layout
+                customToast.duration = Toast.LENGTH_SHORT
+                customToast.show()
                 removeFirstObjectAndNotifyAdapter()
             }
 
             override fun onRightCardExit(o: Any) {
-                showToast("Admire")
+                toastText.text = "Admire"
+                customToast.view = layout
+                customToast.duration = Toast.LENGTH_SHORT
+                customToast.show()
                 removeFirstObjectAndNotifyAdapter()
             }
 
@@ -122,7 +140,10 @@ class Home : Fragment() {
         })
         flingAdapterView.setOnItemClickListener(object : SwipeFlingAdapterView.OnItemClickListener {
             override fun onItemClicked(i: Int, o: Any) {
-                showToast("data is ${initialData[i]}")
+                toastText.text = "data is ${initialData[i]}"
+                customToast.view = layout
+                customToast.duration = Toast.LENGTH_SHORT
+                customToast.show()
             }
         })
     }
@@ -162,7 +183,10 @@ class Home : Fragment() {
                 imageAdapter.notifyDataSetChanged()
 
                 // Handle when there are no more images to display
-                showToast("No more images")
+                toastText.text = "No more images"
+                customToast.view = layout
+                customToast.duration = Toast.LENGTH_SHORT
+                customToast.show()
             }
         }
 

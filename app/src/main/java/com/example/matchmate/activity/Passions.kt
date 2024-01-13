@@ -3,6 +3,7 @@ package com.example.matchmate.activity;
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -16,6 +17,8 @@ import com.example.matchmate.R
 import com.example.matchmate.main.Main
 
 class Passions : AppCompatActivity(), View.OnClickListener {
+
+    private var selectedInterestsCount = 0
 
     private lateinit var cv1: CardView
     private lateinit var cv2: CardView
@@ -42,8 +45,11 @@ class Passions : AppCompatActivity(), View.OnClickListener {
     private lateinit var back: ImageView
     private lateinit var skip: TextView
     private lateinit var confirmation: Button
-
     private lateinit var constraintLayout: ConstraintLayout
+    private lateinit var inflater2: LayoutInflater
+    private lateinit var layout: View
+    private lateinit var toastText: TextView
+    private lateinit var customToast: Toast
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +59,11 @@ class Passions : AppCompatActivity(), View.OnClickListener {
         skip = findViewById(R.id.skip)
         confirmation = findViewById<Button>(R.id.next)
         constraintLayout = findViewById(R.id.constraint)
+
+        customToast = Toast(applicationContext)
+        inflater2 = layoutInflater
+        layout = inflater2.inflate(R.layout.custom_toast_layout, findViewById(R.id.custom_toast_layout))
+        toastText = layout.findViewById<TextView>(R.id.toastText)
 
         btn1 = findViewById(R.id.btn1)
         btn2 = findViewById(R.id.btn2)
@@ -104,12 +115,20 @@ class Passions : AppCompatActivity(), View.OnClickListener {
         val lastName = intent.getStringExtra("LAST_NAME")
 
         confirmation.setOnClickListener {
-            val intent = Intent(applicationContext, Main::class.java)
+            if ( selectedInterestsCount >= 3 ) {
+                val intent = Intent(applicationContext, Main::class.java)
 
-            intent.putExtra("FIRST_NAME", firstName)
-            intent.putExtra("LAST_NAME", lastName)
+                intent.putExtra("FIRST_NAME", firstName)
+                intent.putExtra("LAST_NAME", lastName)
 
-            startActivity(intent)
+                startActivity(intent)
+
+            } else {
+                toastText.text = "Please select atleast 3 interests"
+                customToast.view = layout
+                customToast.duration = Toast.LENGTH_SHORT
+                customToast.show()
+            }
         }
     }
 
@@ -146,6 +165,7 @@ class Passions : AppCompatActivity(), View.OnClickListener {
         btn.setBackgroundColor(Color.parseColor("#E94057"))
         btn.setCompoundDrawablesWithIntrinsicBounds(drawableId, 0, 0, 0)
         btn.setTextColor(Color.WHITE)
+        selectedInterestsCount++
     }
 
     private fun changeColorTwo(cv: CardView, btn: Button, drawableId: Int) {
@@ -153,5 +173,6 @@ class Passions : AppCompatActivity(), View.OnClickListener {
         btn.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white))
         btn.setCompoundDrawablesWithIntrinsicBounds(drawableId, 0, 0, 0)
         btn.setTextColor(Color.BLACK)
+        selectedInterestsCount = 0
     }
 }

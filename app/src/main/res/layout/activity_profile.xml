@@ -152,4 +152,20 @@
         android:layout_marginRight="35dp"
         android:visibility="invisible" />
 
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="295dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/circle_border"
+        android:fontFamily="@font/skbold"
+        android:gravity="center"
+        android:text="Set Birthdate"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:backgroundTint="@null" />
+
 </RelativeLayout>

@@ -4,6 +4,7 @@ import com.example.matchmate.R
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,7 +19,7 @@ class Code : AppCompatActivity() {
     private lateinit var secondNum: EditText
     private lateinit var thirdNum: EditText
     private lateinit var fourthNum: EditText
-    private lateinit var sendAgain: TextView
+    private lateinit var sendAgain: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class Code : AppCompatActivity() {
 
         timer = findViewById(R.id.textView9)
         back = findViewById<ImageView>(R.id.backImage)
-        sendAgain = findViewById<TextView>(R.id.sendagain)
+        sendAgain = findViewById(R.id.sendagain)
         val constraintLayout = findViewById<ConstraintLayout>(R.id.constraint)
         firstNum = findViewById(R.id.editText)
         secondNum = findViewById(R.id.editText3)
