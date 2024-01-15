@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="your_corner_radius_dimension">12dp</dimen>
+</resources>

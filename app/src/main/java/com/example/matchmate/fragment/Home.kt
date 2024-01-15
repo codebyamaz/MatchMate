@@ -1,5 +1,9 @@
 package com.example.matchmate.fragment
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.transition.Slide
 import android.transition.TransitionManager
@@ -43,6 +47,7 @@ class Home : Fragment() {
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
         backImg = view.findViewById(R.id.backImage)
@@ -124,42 +129,56 @@ class Home : Fragment() {
 
             // Check if there are more images to display
             if (currentImageIndex < initialData.size) {
-                // Create a Transition animation
-                val transition = Slide(Gravity.BOTTOM)
-                transition.duration = 300 // Adjust the duration as needed
-                transition.addTarget(flingAdapterView)
-
-                // Apply the transition to the fragment's container
-                TransitionManager.beginDelayedTransition(frameLayout, transition)
-
-                // Update the adapter with the new data
+                // Update the adapter with the new data without animation
                 imageAdapter.setData(listOf(initialData[currentImageIndex]))
                 imageAdapter.notifyDataSetChanged()
+
+                // Create a custom slide-up and fade-in animation
+                val slideUp = ObjectAnimator.ofFloat(frameLayout, "translationY", frameLayout.height.toFloat(), 0f)
+                val fadeIn = ObjectAnimator.ofFloat(frameLayout, "alpha", 0f, 1f)
+
+                // Create a AnimatorSet for combining animations
+                val set = AnimatorSet()
+                set.playTogether(slideUp, fadeIn)
+                set.duration = 500 // Adjust the duration as needed
+
+                // Start the animation
+                set.start()
+
             } else {
                 // Reset the index and reload the data
-                currentImageIndex = 0
-                initialData.clear()
 
-                // Create a Transition animation
-                val transition = Slide(Gravity.BOTTOM)
-                transition.duration = 300 // Adjust the duration as needed
-                transition.addTarget(flingAdapterView)
+                // Create a custom slide-down and fade-out animation
+                val slideDown = ObjectAnimator.ofFloat(frameLayout, "translationY", 0f, frameLayout.height.toFloat())
+                val fadeOut = ObjectAnimator.ofFloat(frameLayout, "alpha", 1f, 0f)
 
-                // Apply the transition to the fragment's container
-                TransitionManager.beginDelayedTransition(frameLayout, transition)
+                // Create a AnimatorSet for combining animations
+                val set = AnimatorSet()
+                set.playTogether(slideDown, fadeOut)
+                set.duration = 500 // Adjust the duration as needed
 
-                // Update the adapter with the new data
-                imageAdapter.setData(initialData)
-                imageAdapter.notifyDataSetChanged()
+                // Update the adapter with the new data after the animation
+                set.addListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        currentImageIndex = 0
+                        initialData.clear()
+                        imageAdapter.setData(initialData)
+                        imageAdapter.notifyDataSetChanged()
 
-                // Handle when there are no more images to display
-                showToast("No more images")
+                        // Handle when there are no more images to display
+                        showToast("No more images")
+                    }
+                })
+
+                // Start the animation
+                set.start()
             }
         }
 
         // Reset the flag after each swipe
         canSwipe = true
     }
+
 
     private fun showToast(message: String) {
         toastText.text = message

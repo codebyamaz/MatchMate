@@ -3,6 +3,7 @@ package com.example.matchmate.activity;
 import com.example.matchmate.R
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -50,15 +51,16 @@ class Iam : AppCompatActivity() {
 
         woman.setOnClickListener {
             isWoman = true
-            woman.setBackgroundColor(Color.parseColor("#E94057"))
-            man.setBackgroundColor(Color.WHITE)
+            woman.setCardBackgroundColor(Color.parseColor("#E94057"))
+            man.setCardBackgroundColor(Color.WHITE)
         }
 
+        val cornerRadiusInPixels = resources.getDimensionPixelSize(R.dimen.your_corner_radius_dimension)
 
         man.setOnClickListener {
                 isMan = true
-                woman.setBackgroundColor(Color.WHITE)
-                man.setBackgroundColor(Color.parseColor("#E94057"))
+                woman.setCardBackgroundColor(Color.WHITE)
+                man.setCardBackgroundColor(Color.parseColor("#E94057"))
             }
 
         submitButton.setOnClickListener {

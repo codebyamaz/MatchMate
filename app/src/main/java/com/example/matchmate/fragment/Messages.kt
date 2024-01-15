@@ -16,6 +16,7 @@ import com.example.matchmate.activity.ChatActivity
 import com.example.matchmate.adapter.MessageAdapter
 import com.example.matchmate.click.MessageClickListener
 import com.example.matchmate.extra.DividerItemDecoration
+import com.example.matchmate.fragment.ProfileInfo
 import com.example.matchmate.model.MessagesModel
 
 class Messages : Fragment() {

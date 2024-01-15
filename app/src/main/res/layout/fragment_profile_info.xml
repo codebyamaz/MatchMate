@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileInfo"
+    android:id="@+id/constraintLayout"
     tools:ignore="ExtraText">
 
     <FrameLayout
@@ -23,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="415dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/a1"
+        android:src="@drawable/a12"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -197,7 +198,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/aboutContent" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/interest_1"
+                    android:id="@+id/cardView11"
                     android:layout_width="140dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="27dp"
@@ -208,7 +209,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/interestsHeading">
 
                     <Button
-                        android:id="@+id/b1"
+                        android:id="@+id/btn11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/travel"
@@ -224,7 +225,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/interest_2"
+                    android:id="@+id/cradView12"
                     android:layout_width="140dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
@@ -236,11 +237,11 @@
                     app:backgroundTint="@null"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="15dp"
-                    app:layout_constraintStart_toEndOf="@+id/interest_1"
-                    app:layout_constraintTop_toTopOf="@+id/interest_1">
+                    app:layout_constraintStart_toEndOf="@+id/cardView11"
+                    app:layout_constraintTop_toTopOf="@+id/cardView11">
 
                     <Button
-                        android:id="@+id/b2"
+                        android:id="@+id/btn12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/books"
@@ -256,7 +257,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/interest_3"
+                    android:id="@+id/cardView13"
                     android:layout_width="140dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="27dp"
@@ -265,10 +266,10 @@
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="15dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/interest_1">
+                    app:layout_constraintTop_toBottomOf="@+id/cardView11">
 
                     <Button
-                        android:id="@+id/b3"
+                        android:id="@+id/btn13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/my_music"
@@ -284,18 +285,18 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/interest_4"
+                    android:id="@+id/cradView14"
                     android:layout_width="140dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
                     android:src="@drawable/interest5"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="15dp"
-                    app:layout_constraintStart_toEndOf="@+id/interest_3"
-                    app:layout_constraintTop_toTopOf="@+id/interest_3">
+                    app:layout_constraintStart_toEndOf="@+id/cardView13"
+                    app:layout_constraintTop_toTopOf="@+id/cardView13">
 
                     <Button
-                        android:id="@+id/b4"
+                        android:id="@+id/btn14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/shopping"
@@ -310,6 +311,290 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView15"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/interestsHeading">
+
+                    <Button
+                        android:id="@+id/btn15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/travel"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Travelling"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cradView16"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/white"
+                    android:drawableLeft="@drawable/books"
+                    android:fontFamily="@font/skbold"
+                    android:text="Books"
+                    android:textColor="@color/red"
+                    app:backgroundTint="@null"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/cardView11"
+                    app:layout_constraintTop_toTopOf="@+id/cardView11">
+
+                    <Button
+                        android:id="@+id/btn16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/books"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Books"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView17"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/interest4"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView11">
+
+                    <Button
+                        android:id="@+id/btn17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/my_music"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Music"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cradView18"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/interest5"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/cardView13"
+                    app:layout_constraintTop_toTopOf="@+id/cardView13">
+
+                    <Button
+                        android:id="@+id/btn18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/shopping"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Shopping"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView19"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/interestsHeading">
+
+                    <Button
+                        android:id="@+id/btn19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/travel"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Travelling"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cradView20"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/white"
+                    android:drawableLeft="@drawable/books"
+                    android:fontFamily="@font/skbold"
+                    android:text="Books"
+                    android:textColor="@color/red"
+                    app:backgroundTint="@null"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/cardView11"
+                    app:layout_constraintTop_toTopOf="@+id/cardView11">
+
+                    <Button
+                        android:id="@+id/btn20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/books"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Books"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView21"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/interest4"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView11">
+
+                    <Button
+                        android:id="@+id/btn21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/my_music"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Music"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cradView22"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/interest5"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/cardView13"
+                    app:layout_constraintTop_toTopOf="@+id/cardView13">
+
+                    <Button
+                        android:id="@+id/btn22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/shopping"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Shopping"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView23"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/interest4"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView11">
+
+                    <Button
+                        android:id="@+id/btn23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/my_music"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Music"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cradView24"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/interest5"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/cardView13"
+                    app:layout_constraintTop_toTopOf="@+id/cardView13">
+
+                    <Button
+                        android:id="@+id/btn24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/shopping"
+                        android:fontFamily="@font/skregular"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Shopping"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </androidx.cardview.widget.CardView>
+
+
                 <TextView
                     android:id="@+id/galleryHeading"
                     android:layout_width="wrap_content"
@@ -320,7 +605,7 @@
                     android:text="Gallery"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/interest_3" />
+                    app:layout_constraintTop_toBottomOf="@+id/cardView13" />
 
                 <ImageView
                     android:id="@+id/galleryPicture1"
@@ -376,7 +661,10 @@
                     android:src="@drawable/mp5"
                     app:layout_constraintStart_toEndOf="@+id/galleryPicture4"
                     app:layout_constraintTop_toBottomOf="@+id/galleryPicture2" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </ScrollView>
+
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

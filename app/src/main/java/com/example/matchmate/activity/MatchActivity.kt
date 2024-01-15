@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
@@ -53,13 +54,13 @@ class MatchActivity : AppCompatActivity() {
         fl1 = findViewById(R.id.fl1)
         fl2 = findViewById(R.id.fl2)
 
-        val intent = intent.getIntExtra("MATCH_IMAGE", 0)
-        img2.setImageResource(intent)
+        val intent2 = intent.getIntExtra("MATCH_IMAGE", 0)
+        img2.setImageResource(intent2)
 
-        swipeBtn.setOnClickListener {
-            val intent = Intent(applicationContext, Main::class.java)
-            startActivity(intent)
-        }
+//        swipeBtn.setOnClickListener {
+//            val intent = Intent(applicationContext, Main::class.java)
+//            startActivity(intent)
+//        }
+
     }
-
 }
