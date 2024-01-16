@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.example.matchmate'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.matchmate"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -38,9 +38,9 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-auth:22.3.0'
     implementation 'com.google.android.gms:play-services-auth:20.7.0'
@@ -52,7 +52,7 @@ dependencies {
     implementation 'com.hbb20:ccp:2.5.3'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.lorentzos.swipecards:library:1.0.9'
-    implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
 
