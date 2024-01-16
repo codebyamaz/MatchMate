@@ -1,10 +1,11 @@
-package com.example.matchmate.activity;
+@file:Suppress("DEPRECATION")
+
+package com.example.matchmate.activity
 
 import com.example.matchmate.R
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.matchmate.main.Main
@@ -22,7 +23,6 @@ class Signup : AppCompatActivity() {
 
     private lateinit var email: Button
     private lateinit var phoneNum: Button
-    private lateinit var progressBar: ProgressBar
 
 
     companion object {
@@ -65,6 +65,7 @@ class Signup : AppCompatActivity() {
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -101,7 +102,7 @@ class Signup : AppCompatActivity() {
                                 } else {
                                     // User doesn't exist in the database, add user information
                                     val name = user.displayName
-                                    val email= user.email
+                                    val email = user.email
                                     val lastName = ""
                                     val dateOfBirth = ""
 
@@ -112,7 +113,7 @@ class Signup : AppCompatActivity() {
                                     userRef.child("dateOfBirth").setValue(dateOfBirth)
 
                                     // Redirect to I am activity
-                                    startActivity(Intent(this@Signup, Profile::class.java))
+                                    startActivity(Intent(this@Signup, Iam::class.java))
                                 }
                                 finish()
                             }
