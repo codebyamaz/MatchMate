@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "908063949546",
+    "project_id": "matchmate-one",
+    "storage_bucket": "matchmate-one.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908063949546:android:92861d14b5567fd5450d93",
+        "android_client_info": {
+          "package_name": "com.example.matchmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908063949546-86inu75cjq8vsb4gbjvp8sr24etj29dl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.matchmate",
+            "certificate_hash": "0c1cbbaab089732845e6da046659e129bc63a91f"
+          }
+        },
+        {
+          "client_id": "908063949546-52uj58277haba5h92a819nogpasfs19e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHzhW0rashc3dTBniLcZNIVlGaBbHONfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908063949546-52uj58277haba5h92a819nogpasfs19e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

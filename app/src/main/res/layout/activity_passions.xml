@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/constraint"
     android:background="@color/white"
-    tools:context=".Passions">
+    tools:context=".activity.Passions">
 
     <ImageView
         android:id="@+id/backImage"

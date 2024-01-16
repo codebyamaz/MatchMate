@@ -1,5 +1,8 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.matchmate.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.transition.Slide
 import android.transition.TransitionManager
@@ -34,15 +37,45 @@ class Home : Fragment() {
     private var canSwipe = true
 
     private var initialData = mutableListOf(
-        R.drawable.g29, R.drawable.girl7, R.drawable.g23, R.drawable.g27, R.drawable.g20,
-        R.drawable.g36, R.drawable.g22, R.drawable.g17, R.drawable.girl20, R.drawable.g26,
-        R.drawable.g13, R.drawable.g18, R.drawable.g19, R.drawable.g11, R.drawable.g21,
-        R.drawable.g15, R.drawable.g24, R.drawable.girl19, R.drawable.g25, R.drawable.girl17,
-        R.drawable.girl9, R.drawable.girl15, R.drawable.girl2, R.drawable.girl14, R.drawable.g1,
-        R.drawable.g30, R.drawable.g32, R.drawable.g16, R.drawable.g35, R.drawable.girl13, R.drawable.girl5
+        R.drawable.g29,
+        R.drawable.girl7,
+        R.drawable.g23,
+        R.drawable.g27,
+        R.drawable.g20,
+        R.drawable.g36,
+        R.drawable.g22,
+        R.drawable.g17,
+        R.drawable.girl20,
+        R.drawable.g26,
+        R.drawable.g13,
+        R.drawable.g18,
+        R.drawable.g19,
+        R.drawable.g11,
+        R.drawable.g21,
+        R.drawable.g15,
+        R.drawable.g24,
+        R.drawable.girl19,
+        R.drawable.g25,
+        R.drawable.girl17,
+        R.drawable.girl9,
+        R.drawable.girl15,
+        R.drawable.girl2,
+        R.drawable.girl14,
+        R.drawable.g1,
+        R.drawable.g30,
+        R.drawable.g32,
+        R.drawable.g16,
+        R.drawable.g35,
+        R.drawable.girl13,
+        R.drawable.girl5
     )
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    @SuppressLint("MissingInflatedId")
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
         backImg = view.findViewById(R.id.backImage)
@@ -53,8 +86,11 @@ class Home : Fragment() {
         flingAdapterView = view.findViewById(R.id.swipe)
         frameLayout = view.findViewById(R.id.mainPhoto)
         customToast = Toast(context)
-        layout = inflater.inflate(R.layout.custom_toast_layout, view.findViewById(R.id.custom_toast_layout))
-        toastText = layout.findViewById<TextView>(R.id.toastText)
+        layout = inflater.inflate(
+            R.layout.custom_toast_layout,
+            view.findViewById(R.id.custom_toast_layout)
+        )
+        toastText = layout.findViewById(R.id.toastText)
 
         currentImageIndex = 0
         setupFlingAdapter()
@@ -95,11 +131,7 @@ class Home : Fragment() {
             }
         })
 
-        flingAdapterView.setOnItemClickListener(object : SwipeFlingAdapterView.OnItemClickListener {
-            override fun onItemClicked(i: Int, o: Any) {
-                showToast("data is ${initialData[i]}")
-            }
-        })
+        flingAdapterView.setOnItemClickListener { i, _ -> showToast("data is ${initialData[i]}") }
     }
 
     private fun handleSwipeResult(message: String) {
