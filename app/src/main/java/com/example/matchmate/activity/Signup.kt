@@ -112,7 +112,7 @@ class Signup : AppCompatActivity() {
                                     userRef.child("dateOfBirth").setValue(dateOfBirth)
 
                                     // Redirect to I am activity
-                                    startActivity(Intent(this@Signup, Iam::class.java))
+                                    startActivity(Intent(this@Signup, Profile::class.java))
                                 }
                                 finish()
                             }
