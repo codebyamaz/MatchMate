@@ -14,7 +14,6 @@ import com.example.matchmate.activity.Signup
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var textView: TextView
     private lateinit var createAcc: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        textView = findViewById<TextView>(R.id.signIn)
+
         createAcc = findViewById<Button>(R.id.button)
 
         val text = "Already have an account? Sign In"
@@ -36,7 +35,6 @@ class MainActivity : AppCompatActivity() {
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
 
-        textView.text = spannable
         createAcc.setOnClickListener {
             val intent = Intent(applicationContext, Signup::class.java)
             startActivity(intent)
