@@ -26,13 +26,15 @@
             android:exported="false" />
         <activity
             android:name=".activity.Passions"
-            android:exported="false"></activity>
+            android:exported="false">
+        </activity>
         <activity
             android:name=".activity.Iam"
             android:exported="false" />
         <activity
             android:name=".activity.Profile"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".activity.Code"
             android:exported="false" />

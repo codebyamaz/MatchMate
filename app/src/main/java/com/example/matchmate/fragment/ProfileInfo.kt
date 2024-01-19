@@ -1,13 +1,19 @@
 package com.example.matchmate.fragment;
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ScrollView
 import android.widget.TextView
+import android.widget.TextView.OnEditorActionListener
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.matchmate.R
@@ -38,10 +44,13 @@ class ProfileInfo : Fragment() {
     private lateinit var picture4: ImageView
     private lateinit var picture5: ImageView
 
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view: View = inflater.inflate(R.layout.fragment_profile_info, container, false)
 
+        sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         profilePic = view.findViewById(R.id.profileInfoPicture)
         back = view.findViewById(R.id.backButtonTop)
         profileScrollView = view.findViewById(R.id.profileInfoPicScroll)
@@ -50,7 +59,7 @@ class ProfileInfo : Fragment() {
         location = view.findViewById(R.id.location)
         awayDistance = view.findViewById(R.id.btn1)
         about = view.findViewById(R.id.aboutContent)
-        occupation = view.findViewById(R.id.occupation)
+//        occupation = view.findViewById(R.id.occupation)
         cv1 = view.findViewById(R.id.cardView11)
         cv2 = view.findViewById(R.id.cradView12)
         cv3 = view.findViewById(R.id.cardView13)
@@ -65,48 +74,51 @@ class ProfileInfo : Fragment() {
         picture4 = view.findViewById(R.id.galleryPicture4)
         picture5 = view.findViewById(com.example.matchmate.R.id.galleryPicture5)
 
+//        send.setOnClickListener(View.OnClickListener { // When the sendButton is clicked, open the EditText
+//            openEditText()
+//        })
+
+        // Set OnEditorActionListener for the occupationEditText
+
+        // Set OnEditorActionListener for the occupationEditText
+//        occupation.setOnEditorActionListener { _, actionId, event ->
+//            if (actionId == EditorInfo.IME_ACTION_DONE ||
+//                (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)
+//            ) {
+//                Toast.makeText(requireContext(), "Helleo", Toast.LENGTH_SHORT).show()
+//                return@setOnEditorActionListener true
+//            }
+//            false
+//        }
+
         val firstName = arguments?.getString("FIRST_NAME")
         val lastName = arguments?.getString("LAST_NAME")
 
-        if (firstName != null) {
+        if (firstName != null && lastName != null) {
+            saveNameToSharedPreferences(firstName, lastName)
             nameAge.text = "$firstName $lastName"
+        } else {
+                nameAge.text = "Hello there!"
         }
 
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun saveNameToSharedPreferences(firstName: String, lastName: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString("FIRST_NAME", firstName)
+        editor.putString("LAST_NAME", lastName)
+        editor.apply()
+    }
 
-        nameAge = view.findViewById(R.id.nameAge)
+    private fun openEditText() {
+        occupation.requestFocus()
+    }
 
-        val firstName = arguments?.getString("FIRST_NAME")
-        val lastName = arguments?.getString("LAST_NAME")
-        val btn1 = arguments?.getString("BTN")
-        val btn2 = arguments?.getString("BTN2")
-        val btn3 = arguments?.getString("BTN3")
-        val btn4 = arguments?.getString("BTN4")
-        val btn5 = arguments?.getString("BTN5")
-        val btn6 = arguments?.getString("BTN6")
-        val btn7 = arguments?.getString("BTN7")
-        val btn8 = arguments?.getString("BTN8")
-        val btn9 = arguments?.getString("BTN9")
-        val btn10 = arguments?.getString("BTN10")
-        val btn11 = arguments?.getString("BTN11")
-        val btn12 = arguments?.getString("BTN12")
-        val btn13 = arguments?.getString("BTN13")
-        val btn14 = arguments?.getString("BTN14")
-
-        interest1.text = btn1 ?: btn5 ?: btn9 ?: btn13 ?: ""
-        interest2.text = btn2 ?: btn6 ?: btn10 ?: btn14 ?: ""
-        interest3.text = btn3 ?: btn7 ?: btn11 ?: ""
-        interest4.text = btn4 ?: btn8 ?: btn12 ?: ""
-
-        if ( firstName != null && lastName != null ) {
-            nameAge.text = "$firstName $lastName"
-        } else {
-            nameAge.text = "Hello there!"
-        }
+    // Method to update the resultTextView
+    private fun updateResultTextView() {
+        val enteredText: String = occupation.getText().toString().trim()
+        location.setText(enteredText)
     }
 
 }

@@ -2,5 +2,5 @@
 <!-- custom_cursor.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <size android:width="2dp" />
-    <solid android:color="#FF0000" /> <!-- Change this to the desired color -->
+    <solid android:color="#ffff" /> <!-- Change this to the desired color -->
 </shape>

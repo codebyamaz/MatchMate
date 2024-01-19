@@ -52,7 +52,7 @@ class Likes : Fragment() {
         dataModels!!.add(likes11)
         dataModels!!.add(likes12)
 
-            val adapter = LikesAdapter(requireContext(), dataModels!!)
+        val adapter = LikesAdapter(requireContext(), dataModels!!)
         gridView.numColumns = 2
         gridView.adapter = adapter
 

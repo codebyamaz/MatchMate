@@ -62,9 +62,10 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editTexts"
+            android:id="@+id/profession"
             style="@style/MyTextInputLayout"
             android:layout_width="295dp"
+            app:cursorColor="@color/black"
             android:layout_height="67dp"
             android:layout_marginTop="30dp"
             android:textColorHint="@color/black"
@@ -72,13 +73,14 @@
             android:hint="First Name">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editText5"
+                android:id="@+id/profrssionEdit"
                 style="@style/MyTextInputEditText"
                 android:fontFamily="@font/skregular"
                 android:textColorHint="@color/black"
                 android:textColorLink="@color/black"
+                android:inputType="textPersonName"
                 android:layout_width="295dp"
-                android:textCursorDrawable="@drawable/shape"
+                android:lines="1"
                 android:layout_height="60dp"
                 android:padding="10dp"
                 android:textColor="@color/black"
@@ -90,6 +92,7 @@
             android:id="@+id/editTexts1"
             android:layout_marginTop="15dp"
             style="@style/MyTextInputLayout"
+            app:cursorColor="@color/black"
             android:layout_width="295dp"
             android:textColorHint="@color/black"
             android:layout_height="67dp"
@@ -101,8 +104,10 @@
                 style="@style/MyTextInputEditText"
                 android:layout_width="295dp"
                 android:layout_height="60dp"
+                android:textColorLink="@color/black"
                 android:padding="10dp"
-                android:textCursorDrawable="@drawable/shape"
+                android:lines="1"
+                android:inputType="textPersonName"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="14dp" />

@@ -57,10 +57,10 @@ class MatchActivity : AppCompatActivity() {
         val intent2 = intent.getIntExtra("MATCH_IMAGE", 0)
         img2.setImageResource(intent2)
 
-//        swipeBtn.setOnClickListener {
-//            val intent = Intent(applicationContext, Main::class.java)
-//            startActivity(intent)
-//        }
+        swipeBtn.setOnClickListener {
+            val intent = Intent(applicationContext, Main::class.java)
+            startActivity(intent)
+        }
 
     }
 }

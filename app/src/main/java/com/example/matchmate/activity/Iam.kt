@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.example.matchmate.fragment.ProfileInfo
+import org.w3c.dom.Text
 
 
 class Iam : AppCompatActivity() {
@@ -39,6 +40,8 @@ class Iam : AppCompatActivity() {
         back = findViewById<ImageView>(R.id.backImage)
         skip = findViewById(R.id.skip)
         submitButton = findViewById<Button>(R.id.submitButton)
+        var womanTv: TextView = findViewById(R.id.womanTv)
+        var manTv: TextView = findViewById(R.id.manTv)
 
         customToast = Toast(applicationContext)
         inflater2 = layoutInflater
@@ -52,6 +55,8 @@ class Iam : AppCompatActivity() {
         woman.setOnClickListener {
             isWoman = true
             woman.setCardBackgroundColor(Color.parseColor("#E94057"))
+            womanTv.setTextColor(Color.WHITE)
+            manTv.setTextColor(Color.BLACK)
             man.setCardBackgroundColor(Color.WHITE)
         }
 
@@ -60,7 +65,9 @@ class Iam : AppCompatActivity() {
         man.setOnClickListener {
                 isMan = true
                 woman.setCardBackgroundColor(Color.WHITE)
-                man.setCardBackgroundColor(Color.parseColor("#E94057"))
+                manTv.setTextColor(Color.WHITE)
+                womanTv.setTextColor(Color.BLACK)
+            man.setCardBackgroundColor(Color.parseColor("#E94057"))
             }
 
         submitButton.setOnClickListener {

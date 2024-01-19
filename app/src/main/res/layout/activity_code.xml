@@ -50,7 +50,7 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edittext1"
         android:layout_width="67dp"
         android:layout_height="70dp"
         android:layout_marginStart="50dp"
@@ -61,16 +61,16 @@
         android:gravity="center"
         android:inputType="number"
         android:maxLength="1"
-        android:nextFocusRight="@id/editText3"
+        android:nextFocusRight="@id/editttext2"
         android:textColor="@color/white"
         android:textCursorDrawable="@color/white"
         android:textSize="34sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText3"
+        app:layout_constraintEnd_toStartOf="@+id/editttext2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editttext2"
         android:layout_width="67dp"
         android:layout_height="70dp"
         android:layout_marginTop="25dp"
@@ -80,17 +80,17 @@
         android:gravity="center"
         android:inputType="number"
         android:maxLength="1"
-        android:nextFocusRight="@id/editText2"
+        android:nextFocusRight="@id/edittext3"
         android:textColor="@color/white"
         android:textCursorDrawable="@color/white"
         android:textSize="34sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText2"
+        app:layout_constraintEnd_toStartOf="@+id/edittext3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintStart_toEndOf="@+id/edittext1"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/edittext3"
         android:layout_width="67dp"
         android:layout_height="70dp"
         android:layout_marginTop="25dp"
@@ -102,13 +102,13 @@
         android:textColor="@color/white"
         android:textCursorDrawable="@color/white"
         android:textSize="34sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText4"
+        app:layout_constraintEnd_toStartOf="@+id/edittext4"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editText3"
+        app:layout_constraintStart_toEndOf="@+id/editttext2"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/edittext4"
         android:layout_width="67dp"
         android:layout_height="70dp"
         android:layout_marginStart="15dp"
@@ -123,14 +123,14 @@
         android:textCursorDrawable="@color/white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText2"
+        app:layout_constraintStart_toEndOf="@+id/edittext3"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <Button
         android:id="@+id/sendagain"
         android:layout_width="295dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/circle_border"
         android:fontFamily="@font/skbold"
         android:text="Continue"

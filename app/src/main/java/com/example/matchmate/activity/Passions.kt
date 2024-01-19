@@ -18,23 +18,6 @@ import com.example.matchmate.main.Main
 
 class Passions : AppCompatActivity(), View.OnClickListener {
 
-    private var selectedInterestsCount = 0
-    private var onClick = false
-    private var selectedButton: Button? = null
-    private var selectedButton2: Button? = null
-    private var selectedButton3: Button? = null
-    private var selectedButton4: Button? = null
-    private var selectedButton5: Button? = null
-    private var selectedButton6: Button? = null
-    private var selectedButton7: Button? = null
-    private var selectedButton8: Button? = null
-    private var selectedButton9: Button? = null
-    private var selectedButton10: Button? = null
-    private var selectedButton11: Button? = null
-    private var selectedButton12: Button? = null
-    private var selectedButton13: Button? = null
-    private var selectedButton14: Button? = null
-
     private lateinit var cv1: CardView
     private lateinit var cv2: CardView
     private lateinit var cv3: CardView
@@ -45,38 +28,10 @@ class Passions : AppCompatActivity(), View.OnClickListener {
     private lateinit var cv8: CardView
     private lateinit var cv9: CardView
     private lateinit var cv10: CardView
-
     private lateinit var cv11: CardView
     private lateinit var cv12: CardView
     private lateinit var cv13: CardView
     private lateinit var cv14: CardView
-
-    private lateinit var btn11: Button
-    private lateinit var btn12: Button
-    private lateinit var btn13: Button
-    private lateinit var btn14: Button
-
-    private lateinit var cv15: CardView
-    private lateinit var cv16: CardView
-    private lateinit var cv17: CardView
-    private lateinit var cv18: CardView
-    private lateinit var cv19: CardView
-    private lateinit var cv20: CardView
-    private lateinit var cv21: CardView
-    private lateinit var cv22: CardView
-    private lateinit var cv23: CardView
-    private lateinit var cv24: CardView
-
-    private lateinit var btn15: Button
-    private lateinit var btn16: Button
-    private lateinit var btn17: Button
-    private lateinit var btn18: Button
-    private lateinit var btn19: Button
-    private lateinit var btn20: Button
-    private lateinit var btn21: Button
-    private lateinit var btn22: Button
-    private lateinit var btn23: Button
-    private lateinit var btn24: Button
 
     private lateinit var btn1: Button
     private lateinit var btn2: Button
@@ -88,6 +43,10 @@ class Passions : AppCompatActivity(), View.OnClickListener {
     private lateinit var btn8: Button
     private lateinit var btn9: Button
     private lateinit var btn10: Button
+    private lateinit var btn11: Button
+    private lateinit var btn12: Button
+    private lateinit var btn13: Button
+    private lateinit var btn14: Button
 
     private lateinit var back: ImageView
     private lateinit var skip: TextView
@@ -97,6 +56,8 @@ class Passions : AppCompatActivity(), View.OnClickListener {
     private lateinit var layout: View
     private lateinit var toastText: TextView
     private lateinit var customToast: Toast
+
+    private var selectedInterestsCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -122,12 +83,6 @@ class Passions : AppCompatActivity(), View.OnClickListener {
         btn8 = findViewById(R.id.btn8)
         btn9 = findViewById(R.id.btn9)
         btn10 = findViewById(R.id.btn10)
-
-        cv11 = findViewById(R.id.cardView11)
-        cv12 = findViewById(R.id.cradView12)
-        cv13 = findViewById(R.id.cardView13)
-        cv14 = findViewById(R.id.cradView14)
-
         btn11 = findViewById(R.id.btn11)
         btn12 = findViewById(R.id.btn12)
         btn13 = findViewById(R.id.btn13)
@@ -143,6 +98,10 @@ class Passions : AppCompatActivity(), View.OnClickListener {
         cv8 = findViewById(R.id.cardView8)
         cv9 = findViewById(R.id.cardView9)
         cv10 = findViewById(R.id.cardView10)
+        cv11 = findViewById(R.id.cardView11)
+        cv12 = findViewById(R.id.cradView12)
+        cv13 = findViewById(R.id.cardView13)
+        cv14 = findViewById(R.id.cradView14)
 
         btn1.setOnClickListener(this)
         btn2.setOnClickListener(this)
@@ -154,12 +113,6 @@ class Passions : AppCompatActivity(), View.OnClickListener {
         btn8.setOnClickListener(this)
         btn9.setOnClickListener(this)
         btn10.setOnClickListener(this)
-
-        cv11.setOnClickListener(this)
-        cv12.setOnClickListener(this)
-        cv13.setOnClickListener(this)
-        cv14.setOnClickListener(this)
-
         btn11.setOnClickListener(this)
         btn12.setOnClickListener(this)
         btn13.setOnClickListener(this)
@@ -175,177 +128,66 @@ class Passions : AppCompatActivity(), View.OnClickListener {
         cv8.setOnClickListener(this)
         cv9.setOnClickListener(this)
         cv10.setOnClickListener(this)
-
-        constraintLayout.setOnClickListener(this)
+        cv11.setOnClickListener(this)
+        cv12.setOnClickListener(this)
+        cv13.setOnClickListener(this)
+        cv14.setOnClickListener(this)
 
         val firstName = intent.getStringExtra("FIRST_NAME")
         val lastName = intent.getStringExtra("LAST_NAME")
 
         confirmation.setOnClickListener {
-            if ( selectedInterestsCount >= 4 ) {
+            if (selectedInterestsCount >= 0) {
                 val intent = Intent(applicationContext, Main::class.java)
 
-                if ( selectedButton == btn1 ) {
-                    val btn1 = btn1.text
-                    intent.putExtra("BTN", btn1)
-                }
-
-                if ( selectedButton2 == btn2 ) {
-                    val btn2 = btn2.text
-                    intent.putExtra("BTN2", btn2)
-                }
-
-                if (selectedButton3 == btn3) {
-                    val btn3Text = btn3.text
-                    intent.putExtra("BTN3", btn3Text)
-                }
-
-                if (selectedButton4 == btn4) {
-                    val btn4Text = btn4.text
-                    intent.putExtra("BTN4", btn4Text)
-                }
-
-                if (selectedButton5 == btn5) {
-                    val btn5Text = btn5.text
-                    intent.putExtra("BTN5", btn5Text)
-                }
-
-                if (selectedButton6 == btn6) {
-                    val btn6Text = btn6.text
-                    intent.putExtra("BTN6", btn6Text)
-                }
-
-                if (selectedButton7 == btn7) {
-                    val btn7Text = btn7.text
-                    intent.putExtra("BTN7", btn7Text)
-                }
-
-                if (selectedButton8 == btn8) {
-                    val btn8Text = btn8.text
-                    intent.putExtra("BTN8", btn8Text)
-                }
-
-                if (selectedButton9 == btn9) {
-                    val btn9Text = btn9.text
-                    intent.putExtra("BTN9", btn9Text)
-                }
-
-                if (selectedButton10 == btn10) {
-                    val btn10Text = btn10.text
-                    intent.putExtra("BTN10", btn10Text)
-                }
-
-                if (selectedButton11 == btn11) {
-                    val btn11Text = btn11.text
-                    intent.putExtra("BTN11", btn11Text)
-                }
-
-                if (selectedButton12 == btn12) {
-                    val btn12Text = btn12.text
-                    intent.putExtra("BTN12", btn12Text)
-                }
-
-                if (selectedButton13 == btn13) {
-                    val btn13Text = btn13.text
-                    intent.putExtra("BTN13", btn13Text)
-                }
-
-                if (selectedButton14 == btn14) {
-                    val btn14Text = btn14.text
-                    intent.putExtra("BTN14", btn14Text)
-                }
+                if (btn1.isSelected) intent.putExtra("BTN", btn1.text)
+                if (btn2.isSelected) intent.putExtra("BTN2", btn2.text)
+                if (btn3.isSelected) intent.putExtra("BTN3", btn3.text)
+                if (btn4.isSelected) intent.putExtra("BTN4", btn4.text)
+                if (btn5.isSelected) intent.putExtra("BTN5", btn5.text)
+                if (btn6.isSelected) intent.putExtra("BTN6", btn6.text)
+                if (btn7.isSelected) intent.putExtra("BTN7", btn7.text)
+                if (btn8.isSelected) intent.putExtra("BTN8", btn8.text)
+                if (btn9.isSelected) intent.putExtra("BTN9", btn9.text)
+                if (btn10.isSelected) intent.putExtra("BTN10", btn10.text)
+                if (btn11.isSelected) intent.putExtra("BTN11", btn11.text)
+                if (btn12.isSelected) intent.putExtra("BTN12", btn12.text)
+                if (btn13.isSelected) intent.putExtra("BTN13", btn13.text)
+                if (btn14.isSelected) intent.putExtra("BTN14", btn14.text)
 
                 intent.putExtra("FIRST_NAME", firstName)
                 intent.putExtra("LAST_NAME", lastName)
 
                 startActivity(intent)
-
             } else {
-                toastText.text = "Please select atleast 4 interests"
-                customToast.view = layout
-                customToast.duration = Toast.LENGTH_SHORT
-                customToast.show()
+//                toastText.text = "Please select at least 4 interests"
+//                customToast.view = layout
+//                customToast.duration = Toast.LENGTH_SHORT
+//                customToast.show()
             }
         }
+
     }
 
     override fun onClick(view: View) {
-        val item = view.id
-        when (item) {
-            R.id.cv, R.id.btn1 -> {
-                changeColor(cv1, btn1, R.drawable.mycamera2, btn1)
-                selectedButton = btn1
-            }
-            R.id.cv2, R.id.btn2 -> {
-                changeColor(cv2, btn2, R.drawable.shopping2, btn2)
-                selectedButton2 = btn2
-            }
-            R.id.cvFour, R.id.btn3 -> {
-                changeColor(cv3, btn3, R.drawable.my_voice2, btn3)
-                selectedButton3 = btn3
-            }
-            R.id.cvThree, R.id.btn4 -> {
-                changeColor(cv4, btn4, R.drawable.my_tennis2, btn4)
-                selectedButton4 = btn4
-            }
-            R.id.cardView5, R.id.btn5 -> {
-                changeColor(cv5, btn5, R.drawable.my_run2, btn5)
-                selectedButton4 = btn5
-            }
-            R.id.cardView6, R.id.btn6 -> {
-                changeColor(cv6, btn6, R.drawable.my_art2, btn6)
-                selectedButton6 = btn6
-            }
-            R.id.cardView7, R.id.btn7 -> {
-                changeColor(cv7, btn7, R.drawable.my_paragliding2, btn7)
-                selectedButton7 = btn7
-            }
-            R.id.cardView8, R.id.btn8 -> {
-                changeColor(cv8, btn8, R.drawable.investing2, btn8)
-                selectedButton8 = btn8
-            }
-            R.id.cardView9, R.id.btn9 -> {
-                changeColor(cv9, btn9, R.drawable.my_games2, btn9)
-                selectedButton9 = btn9
-            }
-            R.id.cardView10, R.id.btn10 -> {
-                changeColor(cv10, btn10, R.drawable.my_hiking2, btn10)
-                selectedButton10 = btn10
-            }
-            R.id.cardView11, R.id.btn11 -> {
-                changeColor(cv11, btn11, R.drawable.travel2, btn11)
-                selectedButton11 = btn11
-            }
-            R.id.cradView12, R.id.btn12 -> {
-                changeColor(cv12, btn12, R.drawable.books2, btn11)
-                selectedButton12 = btn12
-            }
-            R.id.cardView13, R.id.btn13 -> {
-                changeColor(cv13, btn13, R.drawable.music2, btn13)
-                selectedButton13 = btn13
-            }
-            R.id.cradView14, R.id.btn14 ->  {
-                changeColor(cv14, btn14, R.drawable.code2, btn14)
-                selectedButton14 = btn14
-            }
-            R.id.constraint -> {
-                changeColorTwo(cv1, btn1, R.drawable.mycamera)
-                changeColorTwo(cv2, btn2, R.drawable.shopping)
-                changeColorTwo(cv3, btn3, R.drawable.my_voice)
-                changeColorTwo(cv4, btn4, R.drawable.my_tennis)
-                changeColorTwo(cv5, btn5, R.drawable.run)
-                changeColorTwo(cv6, btn6, R.drawable.my_art)
-                changeColorTwo(cv7, btn7, R.drawable.my_paragliding)
-                changeColorTwo(cv8, btn8, R.drawable.investing)
-                changeColorTwo(cv9, btn9, R.drawable.my_games)
-                changeColorTwo(cv10, btn10, R.drawable.my_hiking)
-                changeColorTwo(cv11, btn11, R.drawable.travel)
-                changeColorTwo(cv12, btn12, R.drawable.books)
-                changeColorTwo(cv13, btn13, R.drawable.my_music)
-                changeColorTwo(cv14, btn14, R.drawable.code)
-            }
+        when (view.id) {
+            R.id.cv, R.id.btn1 -> changeColor(cv1, btn1, R.drawable.mycamera2, btn1)
+            R.id.cv2, R.id.btn2 -> changeColor(cv2, btn2, R.drawable.shopping2, btn2)
+            R.id.cvFour, R.id.btn3 -> changeColor(cv3, btn3, R.drawable.my_voice2, btn3)
+            R.id.cvThree, R.id.btn4 -> changeColor(cv4, btn4, R.drawable.my_tennis2, btn4)
+            R.id.cardView5, R.id.btn5 -> changeColor(cv5, btn5, R.drawable.my_run2, btn5)
+            R.id.cardView6, R.id.btn6 -> changeColor(cv6, btn6, R.drawable.my_art2, btn6)
+            R.id.cardView7, R.id.btn7 -> changeColor(cv7, btn7, R.drawable.my_paragliding2, btn7)
+            R.id.cardView8, R.id.btn8 -> changeColor(cv8, btn8, R.drawable.investing2, btn8)
+            R.id.cardView9, R.id.btn9 -> changeColor(cv9, btn9, R.drawable.my_games2, btn9)
+            R.id.cardView10, R.id.btn10 -> changeColor(cv10, btn10, R.drawable.my_hiking2, btn10)
+            R.id.cardView11, R.id.btn11 -> changeColor(cv11, btn11, R.drawable.travel2, btn11)
+            R.id.cradView12, R.id.btn12 -> changeColor(cv12, btn12, R.drawable.books2, btn12)
+            R.id.cardView13, R.id.btn13 -> changeColor(cv13, btn13, R.drawable.music2, btn13)
+            R.id.cradView14, R.id.btn14 -> changeColor(cv14, btn14, R.drawable.code2, btn14)
         }
     }
+
 
     private fun changeColor(cv: CardView, btn: Button, drawableId: Int, onClick: Button) {
         cv.setCardBackgroundColor(Color.parseColor("#E94057"))
@@ -353,13 +195,5 @@ class Passions : AppCompatActivity(), View.OnClickListener {
         btn.setCompoundDrawablesWithIntrinsicBounds(drawableId, 0, 0, 0)
         btn.setTextColor(Color.WHITE)
         selectedInterestsCount++
-    }
-
-    private fun changeColorTwo(cv: CardView, btn: Button, drawableId: Int) {
-        cv.setCardBackgroundColor(ContextCompat.getColor(this, android.R.color.white))
-        btn.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white))
-        btn.setCompoundDrawablesWithIntrinsicBounds(drawableId, 0, 0, 0)
-        btn.setTextColor(Color.BLACK)
-        selectedInterestsCount = 0
     }
 }
